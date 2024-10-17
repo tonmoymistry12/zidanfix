@@ -1,0 +1,66 @@
+@import "../../styles/variables";
+
+
+.logo {
+  width: 370px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+  .image {
+    height: 50px;
+    width: 200px !important;
+    position: relative !important;
+    object-fit: cover; // Optional
+  }
+}
+
+.telephoneBox {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+
+  .telephoneImageBox {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .telephoneimage {
+      width: 26px !important;
+      height: 38px !important;
+
+    }
+  }
+
+  .telephoneNumber {
+    font-size: 13px;
+    color: #000;
+    font-weight: 500;
+  }
+}
+
+.header {
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  height: 80px;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+
+
+  .fontStyle {
+    color: $dark-black;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 128%;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
