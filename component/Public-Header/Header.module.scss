@@ -73,7 +73,7 @@
   width: 100%;
   .image {
    
-    width: 190px !important;
+    width: 180px !important;
     
   }
   
@@ -84,5 +84,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .telephoneNumber {
+      font-size: 14px;
+      color: #1105ff;
+      font-weight: 500;
+    }
 }
+
 }

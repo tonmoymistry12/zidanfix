@@ -24,13 +24,13 @@ const FirstPage = () => {
   ];
 
   const handleBookNowClick = () => {
-    const phoneNumber = '918768194014';
+    const phoneNumber = '919233141733';
     const whatsappUrl = `https://wa.me/${phoneNumber}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleTalkToUsClick = () => {
-    const phoneNumber = '918768194014';
+    const phoneNumber = '919233141733';
     window.open(`tel:${phoneNumber}`);
   };
 
