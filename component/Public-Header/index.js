@@ -55,12 +55,7 @@ const PublicHeader = () => {
 
             </div >
             <div className={styles.telephoneBox}>
-                 <div className={styles.contactUs}>Contact Us: </div>
-                  
-                  <div className={styles.telephoneNumber}>
-                    +91-9233141733
-                  </div>
-                  <div className={styles.telephoneImageBox} style={{ position: 'relative' }}>
+            <div className={styles.telephoneImageBox} style={{ position: 'relative' }}>
                     <Image
                       src="/images/header/telephone.svg"
                       alt="Picture of the logo"
@@ -69,6 +64,12 @@ const PublicHeader = () => {
                       objectFit="contain"
                     />
                   </div>
+                 <div className={styles.contactUs}>Contact Us: </div>
+                  
+                  <div className={styles.telephoneNumber}>
+                    +91-9233141733
+                  </div>
+                  
 
                 </div>
             {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

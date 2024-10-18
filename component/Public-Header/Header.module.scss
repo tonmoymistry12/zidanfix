@@ -3,7 +3,6 @@
 
 .logo {
   width: 395px;
-  height: 80px;
   position: relative;
   display: flex;
   gap: 30px;
@@ -12,7 +11,7 @@
 
   .image {
     height: 50px;
-    width: 200px !important;
+    width: 210px !important;
     position: relative !important;
     object-fit: cover; // Optional
   }
@@ -40,14 +39,14 @@
   }
 
   .telephoneNumber {
-    font-size: 13px;
-    color: #000;
+    font-size: 18px;
+    color: #1105ff;
     font-weight: 500;
   }
 }
 
 .header {
-  background-color: $white;
+  background-color: #f4f4f4;
   position: fixed;
   top: 0;
   height: 100px;
@@ -67,4 +66,22 @@
 .contactUs{
   font-weight: 600;
   color: #000;
+}
+
+@media (max-width: 768px) {
+  .logo{
+  width: 100%;
+  .image {
+    
+    width: 160px !important;
+   
+  }
+  }
+  .telephoneBox {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 }

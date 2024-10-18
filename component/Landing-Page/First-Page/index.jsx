@@ -42,7 +42,7 @@ const FirstPage = () => {
 
         {isMobile && (
           <Grid item xs={12} md={12} >
-            <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
+            <Box sx={{ textAlign: 'center', marginTop: '101px' }}>
               <img
                 src="./images/background/back1.jpeg" // Update this with the actual image path
                 alt="Mobile Header Image"
