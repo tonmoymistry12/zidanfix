@@ -108,7 +108,7 @@ const SecondPage = () => {
 				</Box>
 				<Box className={style.partnerIcon}>
 					<Image
-						src="/images/brands/bellevue-logo.png"
+						src="/images/brands/nh.svg"
 						alt="Picture of the logo"
 						className={style.image}
 						layout="fill"
