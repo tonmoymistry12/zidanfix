@@ -44,13 +44,22 @@ const PublicHeader = () => {
             >
               <div className={styles.logo}>
                 <Image
-                  src="/images/logo/zidan-logo.png"
+                  src="/images/logo/zidan-logo.svg"
                   alt="Picture of the logo"
                   className={styles.image}
                   layout="fill"
                   objectFit="contain"
                 />
-                <div className={styles.telephoneBox}>
+               
+              </div>
+
+            </div >
+            <div className={styles.telephoneBox}>
+                 <div className={styles.contactUs}>Contact Us: </div>
+                  
+                  <div className={styles.telephoneNumber}>
+                    +91-9233141733
+                  </div>
                   <div className={styles.telephoneImageBox} style={{ position: 'relative' }}>
                     <Image
                       src="/images/header/telephone.svg"
@@ -60,16 +69,9 @@ const PublicHeader = () => {
                       objectFit="contain"
                     />
                   </div>
-                  <div className={styles.telephoneNumber}>
-                    +91-8768194014
-                  </div>
 
                 </div>
-              </div>
-
-            </div >
-
-            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -104,16 +106,16 @@ const PublicHeader = () => {
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
-            <Typography
+            </Box> */}
+            {/* <Typography
               variant="h6"
               noWrap
               component="div"
               sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
             >
               LOGO
-            </Typography>
-            <Box sx={{ display: { xs: "none", md: "flex" }, justifyContent: 'space-between', gap: '50px' }}>
+            </Typography> */}
+            {/* <Box sx={{ display: { xs: "none", md: "flex" }, justifyContent: 'space-between', gap: '50px' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
@@ -124,7 +126,7 @@ const PublicHeader = () => {
                   {page}
                 </Button>
               ))}
-            </Box>
+            </Box> */}
             {/* 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

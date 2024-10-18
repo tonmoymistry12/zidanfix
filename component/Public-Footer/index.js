@@ -199,7 +199,7 @@ const PublicFooter = () => {
             </form>
           </div>
           <div className={styles.infoSection}>
-            <img src={'/images/logo/zidan-logo.png'} alt="Company Logo" className={styles.logo} />
+            <img src={'/images/logo/zidan-logo.svg'} alt="Company Logo" className={styles.logo} />
             <Typography variant="body2" color="white">
               Company Registration No: XYZ123456
             </Typography>

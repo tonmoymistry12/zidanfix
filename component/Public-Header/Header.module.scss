@@ -2,12 +2,12 @@
 
 
 .logo {
-  width: 370px;
-  height: 70px;
+  width: 395px;
+  height: 80px;
   position: relative;
   display: flex;
   gap: 30px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   .image {
@@ -50,7 +50,7 @@
   background-color: $white;
   position: fixed;
   top: 0;
-  height: 80px;
+  height: 100px;
   z-index: 999999;
   display: flex;
   justify-content: center;
@@ -63,4 +63,8 @@
     line-height: 128%;
     font-family: 'Montserrat', sans-serif;
   }
+}
+.contactUs{
+  font-weight: 600;
+  color: #000;
 }
