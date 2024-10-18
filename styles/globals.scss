@@ -61,3 +61,55 @@ a {
 
 
 }
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+ 
+ 
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+}
+
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  animation: ring 2s infinite; /* Add ringing animation */
+}
+
+.whatsapp-icon img {
+  width: 50px; /* Adjust size */
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
+}
+
