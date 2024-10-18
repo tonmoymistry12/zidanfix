@@ -126,7 +126,7 @@ const SecondPage = () => {
 				</Box>
 				<Box className={style.partnerIcon}>
 					<Image
-						src="/images/brands/medanta.png"
+						src="/images/brands/pic.png"
 						alt="Picture of the logo"
 						className={style.image}
 						layout="fill"
