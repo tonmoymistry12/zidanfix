@@ -39,10 +39,7 @@ const SecondPage = () => {
 			title: "Microwave Repair",
 			description: "Get your microwave back to working condition in no time.",
 		},
-		{
-			title: "Mixer & Grinder Repair",
-			description: "We fix mixers and grinders, ensuring your kitchen runs smoothly.",
-		},
+		
 		{
 			title: "Refrigerator Repair",
 			description: "Keep your food fresh with our fast and reliable refrigerator repair services.",

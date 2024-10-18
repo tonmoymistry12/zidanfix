@@ -212,7 +212,7 @@ const PublicFooter = () => {
         </div>
         <div className={styles.subFooter}>
           <Typography variant="body2" color="white">
-            &copy; {new Date().getFullYear()} Zidanfix. All Rights Reserved.
+            &copy; {new Date().getFullYear()} devicesathi. All Rights Reserved.
           </Typography>
         </div>
       </footer>
