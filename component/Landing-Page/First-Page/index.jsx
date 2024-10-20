@@ -74,39 +74,39 @@ const FirstPage = () => {
           <Box sx={{ marginTop: '20px' }}>
             <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px', justifyContent: 'center' }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-              <div>
+              <Typography>
               <Typography> Budget-Friendly Solutions</Typography>
               <Typography sx={{fontSize:'14px'}}>Affordable services without compromising quality, offering the best value for your money.</Typography>
-              </div>
+              </Typography>
             </Typography>
             <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px' }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-               <div>
+              <Typography>
                <Typography>Trusted & Reliable</Typography>
                <Typography sx={{fontSize:'14px'}}>Dependable and consistent service trusted by many satisfied customers.</Typography>
-               </div>
+               </Typography>
               
             </Typography>
             <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} /> 
-              <div>
+              <Typography>
               <Typography>Convenient Scheduling</Typography>
               <Typography sx={{fontSize:'14px'}}>Flexible appointments that fit your schedule for hassle-free service.</Typography>
-              </div>
+              </Typography>
             </Typography>
             <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-              <div>
+              <Typography>
               <Typography>Fast & Efficient Service</Typography>
               <Typography sx={{fontSize:'14px'}}>Quick, expert repairs to get your appliances working in no time.</Typography>
-              </div>
+              </Typography>
             </Typography>
             <Typography sx={{ display: 'flex', alignItems: 'flex-start' }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px' }} /> 
-              <div>
+              <Typography>
               <Typography>Certified Technicians</Typography>
               <Typography sx={{fontSize:'14px'}}>Skilled, certified professionals ensuring high-quality work every time.</Typography>
-              </div>
+              </Typography>
             </Typography>
           </Box>
         </Grid>
