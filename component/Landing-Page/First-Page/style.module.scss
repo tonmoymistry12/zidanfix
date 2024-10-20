@@ -18,6 +18,7 @@
     align-items: center;
     gap: 30px;
     z-index: 999;
+    padding: 20px;
     
 }
 
@@ -40,14 +41,14 @@
     padding: 20px 0px;
     gap: 15px;
     height: 100%;
-    margin-top: 60px;
+    margin-top: 6px;
 }
 
 .mainHeader {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 20px;
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -77,11 +78,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .childDiv {
-    flex: 1 1 30%;
+    
     margin: 6px;
     text-align: center;
     display: flex;
@@ -93,14 +94,14 @@
 }
 
 .childDivforimg {
-    width: 75px;
-    height: 55px;
+    width: 80px;
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #e6e3e3, #c3c0c0);
+    background: linear-gradient(to bottom, #47dddb, #00ffe3);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(0);
     transition: transform 0.3s ease-out;
@@ -121,7 +122,7 @@
 }
 
 .deviceName {
-    font-size: 14px;
+    font-size: 16px;
     word-break: break-word;
     width: 124px;
 }
@@ -131,14 +132,13 @@
     font-size: 24px;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    text-align: 'left',
+    margin-top: 30px;
 }
 .extensiveBox{
     
     display: flex;
     align-items:flex-start;
     gap: 10px;
-    margin-bottom: 20px;
 }
 
 /* Mobile styles */
@@ -201,7 +201,7 @@
 
     .childDivforimg {
         width: 80px;
-        height: 55px;
+        height: 80px;
     }
 
     .bottomWave {
@@ -219,6 +219,7 @@
         font-size: 21px;
         text-align: center;
         margin-bottom: 10px;
+        margin-top: 0;
     }
 
     .contentWrapper {
@@ -229,9 +230,9 @@
 
 }
 .experienceText {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     width: 500px;
     text-align: left;
   }
