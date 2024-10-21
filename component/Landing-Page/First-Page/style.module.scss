@@ -140,6 +140,17 @@
     align-items:flex-start;
     gap: 10px;
 }
+.bulletPoint{
+    display: flex;
+    margin-bottom: 10px;
+
+}
+.bulletPointHeading{
+    font-weight: 700;
+}
+.bulletPointDesc{
+    font-size: 13px;
+}
 
 /* Mobile styles */
 /* Mobile styles */

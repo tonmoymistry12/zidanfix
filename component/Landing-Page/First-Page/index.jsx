@@ -72,42 +72,42 @@ const FirstPage = () => {
 
           {/* Add this section below the existing text */}
           <Box sx={{ marginTop: '20px' }}>
-            <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px', justifyContent: 'center' }} className={style.bulletPoint}>
+            <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px', justifyContent: 'center' }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-              <Typography>
-              <Typography> Budget-Friendly Solutions</Typography>
-              <Typography sx={{fontSize:'14px'}}>Affordable services without compromising quality, offering the best value for your money.</Typography>
-              </Typography>
-            </Typography>
-            <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px' }} className={style.bulletPoint}>
+              <div >
+              <div className={style.bulletPointHeading}> Budget-Friendly Solutions</div>
+              <div className={style.bulletPointDesc}>Affordable services without compromising quality, offering the best value for your money.</div>
+              </div>
+            </div>
+            <div  className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-              <Typography>
-               <Typography>Trusted & Reliable</Typography>
-               <Typography sx={{fontSize:'14px'}}>Dependable and consistent service trusted by many satisfied customers.</Typography>
-               </Typography>
+              <div>
+               <div className={style.bulletPointHeading}>Trusted & Reliable</div>
+               <div className={style.bulletPointDesc} >Dependable and consistent service trusted by many satisfied customers.</div>
+               </div>
               
-            </Typography>
-            <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
+            </div>
+            <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} /> 
-              <Typography>
-              <Typography>Convenient Scheduling</Typography>
-              <Typography sx={{fontSize:'14px'}}>Flexible appointments that fit your schedule for hassle-free service.</Typography>
-              </Typography>
-            </Typography>
-            <Typography sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
+              <div>
+              <div className={style.bulletPointHeading}>Convenient Scheduling</div>
+              <div className={style.bulletPointDesc} >Flexible appointments that fit your schedule for hassle-free service.</div>
+              </div>
+            </div>
+            <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom:'10px'  }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px',  }} /> 
-              <Typography>
-              <Typography>Fast & Efficient Service</Typography>
-              <Typography sx={{fontSize:'14px'}}>Quick, expert repairs to get your appliances working in no time.</Typography>
-              </Typography>
-            </Typography>
-            <Typography sx={{ display: 'flex', alignItems: 'flex-start' }} className={style.bulletPoint}>
+              <div className={style.bulletPointHeading}>
+              <div>Fast & Efficient Service</div>
+              <div className={style.bulletPointDesc} >Quick, expert repairs to get your appliances working in no time.</div>
+              </div>
+            </div>
+            <div sx={{ display: 'flex', alignItems: 'flex-start' }} className={style.bulletPoint}>
               <CheckCircleIcon style={{ color: 'green', marginRight: '8px' }} /> 
-              <Typography>
-              <Typography>Certified Technicians</Typography>
-              <Typography sx={{fontSize:'14px'}}>Skilled, certified professionals ensuring high-quality work every time.</Typography>
-              </Typography>
-            </Typography>
+              <div>
+              <div className={style.bulletPointHeading}>Certified Technicians</div>
+              <div className={style.bulletPointDesc} >Skilled, certified professionals ensuring high-quality work every time.</div>
+              </div>
+            </div>
           </Box>
         </Grid>
 
