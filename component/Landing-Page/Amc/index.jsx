@@ -5,7 +5,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const AMCDetails = () => {
     const amcCards = [
-        { title: 'About AMC', description: 'An Annual Maintenance Contract ensures regular servicing and maintenance to avoid breakdowns.' },
+        { title: 'About AMC', description: 'An Annual Maintenance Contract ensures regular servicing and maintenance to avoid breakdowns. Minimum 10 AC' },
         { title: 'Benefits of AMC', description: 'Hassle-free maintenance, extended equipment life, cost savings, and peace of mind.' },
         { title: 'Coverage Options', description: 'Choose between Comprehensive or Non-comprehensive AMC based on your needs.' },
         { title: 'Duration', description: 'Flexible plans starting from 1 year to up to 10 years for maximum convenience.' },
