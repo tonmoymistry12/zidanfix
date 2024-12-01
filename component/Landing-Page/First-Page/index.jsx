@@ -31,7 +31,7 @@ const FirstPage = () => {
   };
 
   const handleTalkToUsClick = () => {
-    const phoneNumber = '919233141733';
+    const phoneNumber = '+919233141733';
     window.open(`tel:${phoneNumber}`);
   };
 
