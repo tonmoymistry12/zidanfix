@@ -134,6 +134,45 @@ const FirstPage = () => {
               Talk to Us
             </Button>
           </Box>
+           {/* Add this section below the existing text */}
+           <Box sx={{ marginTop: '20px' }} className={style.bulletBox}>
+           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px', justifyContent: 'center' }} className={style.bulletPoint}>
+             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
+             <div >
+               <div className={style.bulletPointHeading}> Budget-Friendly Solutions</div>
+               <div className={style.bulletPointDesc}>Affordable services without compromising quality, offering the best value for your money.</div>
+             </div>
+           </div>
+           <div className={style.bulletPoint}>
+             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
+             <div>
+               <div className={style.bulletPointHeading}>Trusted & Reliable</div>
+               <div className={style.bulletPointDesc} >Dependable and consistent service trusted by many satisfied customers.</div>
+             </div>
+
+           </div>
+           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px' }} className={style.bulletPoint}>
+             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
+             <div>
+               <div className={style.bulletPointHeading}>Convenient Scheduling</div>
+               <div className={style.bulletPointDesc} >Flexible appointments that fit your schedule for hassle-free service.</div>
+             </div>
+           </div>
+           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px' }} className={style.bulletPoint}>
+             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
+             <div className={style.bulletPointHeading}>
+               <div>Fast & Efficient Service</div>
+               <div className={style.bulletPointDesc} >Quick, expert repairs to get your appliances working in no time.</div>
+             </div>
+           </div>
+           <div sx={{ display: 'flex', alignItems: 'flex-start' }} className={style.bulletPoint}>
+             <CheckCircleIcon style={{ color: 'green', marginRight: '8px' }} />
+             <div>
+               <div className={style.bulletPointHeading}>Certified Technicians</div>
+               <div className={style.bulletPointDesc} >Skilled, certified professionals ensuring high-quality work every time.</div>
+             </div>
+           </div>
+         </Box>
         </Grid>
 
         <Grid item xs={12} md={7} className={style.rightPart}>
