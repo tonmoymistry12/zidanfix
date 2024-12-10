@@ -217,7 +217,15 @@ const FirstPage = () => {
           </div>
         </Grid>
       </Grid>
-
+      <Box className={style.nextBlock} >
+        <img src={'/images/jobs/amc.jpg'} alt="amc" />
+      </Box>
+      <Box className={style.nextBlock2} >
+        <AMCDetails />
+      </Box>
+      <Box className={style.bottomWave}>
+        <img src={'/images/objects/wave.svg'} alt="Wave" />
+      </Box>
       <Modal open={open} onClose={handleCloseModal}>
   <Box
     sx={{
@@ -297,8 +305,17 @@ const FirstPage = () => {
       </>
     )}
   </Box>
+ 
 </Modal>
-
+<Box className={style.nextBlock} >
+        <img src={'/images/jobs/amc.jpg'} alt="amc" />
+      </Box>
+      <Box className={style.nextBlock2} >
+        <AMCDetails />
+      </Box>
+      <Box className={style.bottomWave}>
+        <img src={'/images/objects/wave.svg'} alt="Wave" />
+      </Box>
     </div>
   );
 };
