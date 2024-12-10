@@ -15,22 +15,22 @@ const SecondPage = () => {
 			title: "Air Cooler Repair & Service",
 			description: "Keep cool during the summer with our reliable air cooler repair services.",
 		},
-		{
-			title: "Chimney Repair & Service",
-			description: "Ensure your kitchen chimney is in top condition with our professional services.",
-		},
-		{
-			title: "Gas Stove Repair & Service",
-			description: "We fix gas stoves of all brands and models, ensuring safe and efficient cooking.",
-		},
+		// {
+		// 	title: "Chimney Repair & Service",
+		// 	description: "Ensure your kitchen chimney is in top condition with our professional services.",
+		// },
+		// {
+		// 	title: "Gas Stove Repair & Service",
+		// 	description: "We fix gas stoves of all brands and models, ensuring safe and efficient cooking.",
+		// },
 		{
 			title: "Geyser Repair & Service",
 			description: "Get hot water on demand by fixing any issues with your geyser quickly and efficiently.",
 		},
-		{
-			title: "Inverter Repair & Service",
-			description: "Keep the power on during outages with our expert inverter repair services.",
-		},
+		// {
+		// 	title: "Inverter Repair & Service",
+		// 	description: "Keep the power on during outages with our expert inverter repair services.",
+		// },
 		{
 			title: "Water Purifier Repair & Service",
 			description: "Ensure clean and safe drinking water with our thorough water purifier services..",

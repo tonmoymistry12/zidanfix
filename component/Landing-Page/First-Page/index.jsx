@@ -18,13 +18,13 @@ const FirstPage = () => {
       services: ['Part replacement', 'System cleaning', 'Diagnostic checks'],
       pricing: 'Affordable rates starting from ₹499',
     },
-    {
-      imageName: 'Chimney Repair & Service',
-      imageUrl: '/images/jobs/chimney.png',
-      description: 'Get your chimney repaired and serviced by certified technicians for optimal performance.',
-      services: ['Motor repair', 'Filter cleaning', 'Duct replacement'],
-      pricing: 'Affordable rates starting from ₹399',
-    },
+    // {
+    //   imageName: 'Chimney Repair & Service',
+    //   imageUrl: '/images/jobs/chimney.png',
+    //   description: 'Get your chimney repaired and serviced by certified technicians for optimal performance.',
+    //   services: ['Motor repair', 'Filter cleaning', 'Duct replacement'],
+    //   pricing: 'Affordable rates starting from ₹399',
+    // },
     {
       imageName: 'Geyser Repair & Service',
       imageUrl: '/images/jobs/geyser.png',
@@ -33,12 +33,13 @@ const FirstPage = () => {
       pricing: 'Affordable rates starting from ₹299',
     },
     {
-      imageName: 'Inverter Repair & Service',
-      imageUrl: '/images/jobs/inverter.png',
-      description: 'Professional inverter repair services to keep your power backup system running smoothly.',
-      services: ['Battery replacement', 'Circuit repair', 'System maintenance'],
-      pricing: 'Affordable rates starting from ₹699',
+      imageName: 'Electrical Services',
+      imageUrl: '/images/jobs/electrician.png',
+      description: 'Trusted electrical repair and installation services for homes and offices.',
+      services: ['Wiring issues', 'Switch replacement', 'Appliance installation'],
+      pricing: 'Affordable rates starting from ₹299',
     },
+    
     {
       imageName: 'Water Purifier Repair & Service',
       imageUrl: '/images/jobs/water-purifier.png',
@@ -68,12 +69,13 @@ const FirstPage = () => {
       pricing: 'Affordable rates starting from ₹399',
     },
     {
-      imageName: 'Electrical Services',
-      imageUrl: '/images/jobs/electrician.png',
-      description: 'Trusted electrical repair and installation services for homes and offices.',
-      services: ['Wiring issues', 'Switch replacement', 'Appliance installation'],
-      pricing: 'Affordable rates starting from ₹299',
+      imageName: 'Inverter Repair & Service',
+      imageUrl: '/images/jobs/inverter.png',
+      description: 'Professional inverter repair services to keep your power backup system running smoothly.',
+      services: ['Battery replacement', 'Circuit repair', 'System maintenance'],
+      pricing: 'Affordable rates starting from ₹699',
     },
+    
   ];
   
   const [open, setOpen] = useState(false);
@@ -307,15 +309,7 @@ const FirstPage = () => {
   </Box>
  
 </Modal>
-<Box className={style.nextBlock} >
-        <img src={'/images/jobs/amc.jpg'} alt="amc" />
-      </Box>
-      <Box className={style.nextBlock2} >
-        <AMCDetails />
-      </Box>
-      <Box className={style.bottomWave}>
-        <img src={'/images/objects/wave.svg'} alt="Wave" />
-      </Box>
+
     </div>
   );
 };
