@@ -130,7 +130,7 @@ export default function BaseLayout({ children }) {
 
       {/* Google Analytics Scripts */}
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-ZZT9530476"
+        src="https://www.googletagmanager.com/gtag/js?id=G-LXQ21RW7KQ"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -139,7 +139,7 @@ export default function BaseLayout({ children }) {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-ZZT9530476');
+          gtag('config', 'G-LXQ21RW7KQ');
         `}
       </Script>
 
