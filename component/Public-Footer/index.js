@@ -97,14 +97,14 @@ const PublicFooter = () => {
                     <Email className={styles.contactIcon} />
                     <div>
                       <p>Email Us</p>
-                      <a href="mailto:support@devicesathi.com">support@devicesathi.com</a>
+                      <a href="mailto:devicesathi@gmail.com">devicesathi@gmail.com</a>
                     </div>
                   </li>
                   <li>
                     <LocationOn className={styles.contactIcon} />
                     <div>
                       <p>Location</p>
-                      <address>123 Service Road, Kolkata, West Bengal 700001</address>
+                      <address>Esplanade, Dharmatala, Taltala, Kolkata, West Bengal 700087</address>
                     </div>
                   </li>
                   <li>

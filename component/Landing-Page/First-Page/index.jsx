@@ -19,7 +19,11 @@ import {
   CheckCircle,
   Timer,
   Build,
-  LocalOffer
+  LocalOffer,
+  HandymanRounded,
+  VerifiedUser,
+  MonetizationOn,
+  StarRate
 } from '@mui/icons-material';
 import style from './style.module.scss';
 import { useMediaQuery, useTheme } from '@mui/material';
@@ -154,17 +158,20 @@ Message: ${formData.message}`;
 
   const heroSlides = [
     {
-      image: '/images/background/hero1.jpg',
+      image: isMobile ? '/images/background/mobile1.jpg' : '/images/background/hero1.jpg',
+      mobileImage: '/images/background/mobile1.jpg',
       title: 'Expert Appliance Repairs',
       subtitle: 'Professional service at your doorstep'
     },
     {
-      image: '/images/background/hero2.jpg',
+      image: isMobile ? '/images/background/mobile2.jpg' : '/images/background/hero2.jpg',
+      mobileImage: '/images/background/mobile2.jpg',
       title: 'Same Day Service',
       subtitle: 'Quick response time guaranteed'
     },
     {
-      image: '/images/background/hero3.jpg',
+      image: isMobile ? '/images/background/mobile3.jpg' : '/images/background/hero3.jpg',
+      mobileImage: '/images/background/mobile3.jpg',
       title: 'Certified Technicians',
       subtitle: 'Trusted by thousands of customers'
     }
@@ -193,6 +200,39 @@ Message: ${formData.message}`;
     'Washing Machine Repair': LocalLaundryService,
     'Inverter Repair & Service': Battery90,
   };
+
+  const features = [
+    {
+      icon: <MonetizationOn />,
+      title: "Budget-Friendly Solutions",
+      description: "Affordable services without compromising quality, offering the best value for your money."
+    },
+    {
+      icon: <Security />,
+      title: "Trusted & Reliable",
+      description: "Dependable and consistent service trusted by many satisfied customers."
+    },
+    {
+      icon: <Speed />,
+      title: "Fast & Efficient Service",
+      description: "Quick, expert repairs to get your appliances working in no time."
+    },
+    {
+      icon: <HandymanRounded />,
+      title: "Expert Technicians",
+      description: "Certified professionals with years of experience in appliance repairs."
+    },
+    {
+      icon: <Timer />,
+      title: "24/7 Support",
+      description: "Round-the-clock emergency repair services at your convenience."
+    },
+    {
+      icon: <StarRate />,
+      title: "Quality Guaranteed",
+      description: "All repairs backed by our service quality guarantee."
+    }
+  ];
 
   return (
     <div className={style.wrapper}>
@@ -251,15 +291,24 @@ Message: ${formData.message}`;
         </div>
 
         <div className={style.heroBanner}>
-          <Slider {...sliderSettings} className={style.heroSlider}>
+          <Slider {...sliderSettings}>
             {heroSlides.map((slide, index) => (
-              <div key={index} className={style.heroSlide}>
+              <div key={index}>
                 <div 
-                  className={style.slideBackground}
-                  style={{ backgroundImage: `url(${slide.image})` }}
+                  className={style.heroSlide}
+                  style={{
+                    backgroundImage: `url(${slide.image})`
+                  }}
                 >
-                  <div className={style.heroContent}>
-                   
+                  <div 
+                    className={style.slideBackground}
+                    style={{
+                      backgroundImage: `url(${isMobile ? slide.mobileImage : slide.image})`
+                    }}
+                  >
+                    <div className={style.heroContent}>
+                     
+                    </div>
                   </div>
                 </div>
               </div>
@@ -279,27 +328,21 @@ Message: ${formData.message}`;
         </p>
 
         <div className={style.featuresGrid}>
-          <div className={style.featureCard}>
-            <div className={style.icon}>
-              <CheckCircleIcon />
-            </div>
-            <h3>Budget-Friendly Solutions</h3>
-            <p>Affordable services without compromising quality, offering the best value for your money.</p>
-          </div>
-          <div className={style.featureCard}>
-            <div className={style.icon}>
-              <CheckCircleIcon />
-            </div>
-            <h3>Trusted & Reliable</h3>
-            <p>Dependable and consistent service trusted by many satisfied customers.</p>
-          </div>
-          <div className={style.featureCard}>
-            <div className={style.icon}>
-              <CheckCircleIcon />
-            </div>
-            <h3>Fast & Efficient Service</h3>
-            <p>Quick, expert repairs to get your appliances working in no time.</p>
-          </div>
+          {features.map((feature, index) => (
+            <motion.div 
+              key={index}
+              className={style.featureCard}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className={style.icon}>
+                {feature.icon}
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
 
         <div className={style.servicesSection}>
