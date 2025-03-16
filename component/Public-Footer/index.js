@@ -1,222 +1,181 @@
 import React from "react";
-import { TextField, Button, MenuItem, Grid, Typography } from "@mui/material";
+import { TextField, Button, MenuItem, Grid, Typography, Container, IconButton } from "@mui/material";
 import styles from "./footer.module.scss";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  LinkedIn,
+  YouTube,
+  WhatsApp,
+  Phone,
+  Email,
+  LocationOn,
+  AccessTime,
+  ArrowForward
+} from '@mui/icons-material';
+import Link from 'next/link';
 
 const services = [
   { value: "ac_repair", label: "AC Repair & Service" },
-  { value: "air_cooler_repair", label: "Air Cooler Repair & Service" },
-  { value: "chimney_repair", label: "Chimney Repair & Service" },
-  { value: "gas_stove_repair", label: "Gas Stove Repair & Service" },
-  { value: "geyser_repair", label: "Geyser Repair & Service" },
-  { value: "inverter_repair", label: "Inverter Repair & Service" },
-  { value: "water_purifier_repair", label: "Water Purifier Repair & Service" },
-  { value: "microwave_repair", label: "Microwave Repair" },
-  { value: "mixer_grinder_repair", label: "Mixer & Grinder Repair" },
-  { value: "refrigerator_repair", label: "Refrigerator Repair" },
-  { value: "washing_machine_repair", label: "Washing Machine Repair" },
-  { value: "electrical_services", label: "Electrical Services" },
+  { value: "water_purifier", label: "Water Purifier Service" },
+  { value: "geyser_repair", label: "Geyser Repair" },
+  { value: "electrical", label: "Electrical Services" },
+  { value: "microwave", label: "Microwave Repair" },
+  { value: "refrigerator", label: "Refrigerator Repair" },
+  { value: "washing_machine", label: "Washing Machine Repair" },
+  { value: "inverter", label: "Inverter Repair" },
+];
+
+const quickLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Our Services", href: "/services" },
+  { label: "AMC Plans", href: "/amc" },
+  { label: "Book a Service", href: "/book" },
+  { label: "Career", href: "/career" },
+  { label: "Blog", href: "/blog" },
 ];
 
 const PublicFooter = () => {
+  const handleSocialClick = (platform) => {
+    const links = {
+      facebook: "https://www.facebook.com/profile.php?id=61569940096992",
+      twitter: "https://twitter.com/devicesathi",
+      instagram: "https://instagram.com/devicesathi",
+      linkedin: "https://linkedin.com/company/devicesathi",
+      youtube: "https://youtube.com/devicesathi",
+      whatsapp: "https://wa.me/919233141733"
+    };
+    window.open(links[platform], '_blank');
+  };
+
   return (
-    <div className={styles.footerWrap}>
-      <footer>
-        <div className={styles.footerContent}>
-          <div className={styles.formSection}>
-            <Typography variant="h6" gutterBottom>
-              Contact Us
-            </Typography>
-            <form className={styles.contactForm} noValidate autoComplete="off">
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    required
-                    label="Name"
-                    variant="outlined"
-                    name="name"
-                    InputLabelProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    required
-                    label="Email"
-                    variant="outlined"
-                    name="email"
-                    type="email"
-                    InputLabelProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Phone Number"
-                    variant="outlined"
-                    name="phone"
-                    type="tel"
-                    InputLabelProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                      },
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    select
-                    label="Which device do you need service for?"
-                    variant="outlined"
-                    name="service"
-                    defaultValue=""
-                    InputLabelProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                      },
-                    }}
-                  >
-                    {services.map((option) => (
-                      <MenuItem key={option.value} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </TextField>
-                </Grid>
+    <footer className={styles.footer}>
+      <div className={styles.footerTop}>
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            {/* Company Info */}
+            <Grid item xs={12} md={3}>
+              <div className={styles.companyInfo}>
+                <img src="/images/logo/zidan-logo.svg" alt="DeviceSathi" className={styles.logo} />
+                <p>Your trusted partner for all appliance repair and maintenance services. Available 24/7 for your convenience.</p>
+                <div className={styles.socialLinks}>
+                  <IconButton onClick={() => handleSocialClick('facebook')} className={styles.socialIcon}>
+                    <Facebook />
+                  </IconButton>
+                  <IconButton onClick={() => handleSocialClick('twitter')} className={styles.socialIcon}>
+                    <Twitter />
+                  </IconButton>
+                  <IconButton onClick={() => handleSocialClick('instagram')} className={styles.socialIcon}>
+                    <Instagram />
+                  </IconButton>
+                  <IconButton onClick={() => handleSocialClick('linkedin')} className={styles.socialIcon}>
+                    <LinkedIn />
+                  </IconButton>
+                  <IconButton onClick={() => handleSocialClick('youtube')} className={styles.socialIcon}>
+                    <YouTube />
+                  </IconButton>
+                </div>
+              </div>
+            </Grid>
 
-                {/* New TextArea for Description */}
-                <Grid item xs={12}>
+            
+
+            {/* Contact Info */}
+            <Grid item xs={12} sm={6} md={3}>
+              <div className={styles.footerSection}>
+                <h3>Contact Info</h3>
+                <ul className={styles.contactInfo}>
+                  <li>
+                    <Phone className={styles.contactIcon} />
+                    <div>
+                      <p>24/7 Support Line</p>
+                      <a href="tel:+919233141733">+91 92331 41733</a>
+                    </div>
+                  </li>
+                  <li>
+                    <Email className={styles.contactIcon} />
+                    <div>
+                      <p>Email Us</p>
+                      <a href="mailto:support@devicesathi.com">support@devicesathi.com</a>
+                    </div>
+                  </li>
+                  <li>
+                    <LocationOn className={styles.contactIcon} />
+                    <div>
+                      <p>Location</p>
+                      <address>123 Service Road, Kolkata, West Bengal 700001</address>
+                    </div>
+                  </li>
+                  <li>
+                    <AccessTime className={styles.contactIcon} />
+                    <div>
+                      <p>Working Hours</p>
+                      <span>Mon - Sun: 8:00 AM - 10:00 PM</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </Grid>
+
+            {/* Newsletter */}
+            <Grid item xs={12} md={3}>
+              <div className={styles.footerSection}>
+                <h3>Newsletter</h3>
+                <p>Subscribe to our newsletter for updates and exclusive offers!</p>
+                <form className={styles.newsletterForm}>
                   <TextField
                     fullWidth
-                    label="Description"
+                    placeholder="Enter your email"
                     variant="outlined"
-                    name="description"
-                    multiline
-                    rows={4}
-                    InputLabelProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    InputProps={{
-                      style: { color: '#ffffff' },
-                    }}
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "#ffffff",
-                        },
-                      },
-                    }}
+                    size="small"
+                    className={styles.newsletterInput}
                   />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    style={{
-                      backgroundColor: '#ffffff',
-                      color: '#000000',
-                      '&:hover': {
-                        backgroundColor: '#e0e0e0',
-                      },
-                    }}
+                  <Button 
+                    variant="contained" 
+                    className={styles.subscribeButton}
                   >
-                    Submit
+                    Subscribe
                   </Button>
-                </Grid>
-              </Grid>
-            </form>
-          </div>
-          <div className={styles.infoSection}>
-            <img src={'/images/logo/zidan-logo.svg'} alt="Company Logo" className={styles.logo} />
-            <Typography variant="body2" color="white">
-              Company Registration No: XYZ123456
-            </Typography>
-            <Typography variant="body2" color="white">
-              <a href="/terms" style={{ color: '#ffffff', textDecoration: 'underline' }}>
-                Terms and Conditions
-              </a>
-            </Typography>
-          </div>
-        </div>
-        <div className={styles.subFooter}>
-          <Typography variant="body2" color="white">
-            &copy; {new Date().getFullYear()} devicesathi. All Rights Reserved.
-          </Typography>
-        </div>
-      </footer>
-    </div>
+                </form>
+                <div className={styles.whatsappButton}>
+                  <Button
+                    startIcon={<WhatsApp />}
+                    onClick={() => handleSocialClick('whatsapp')}
+                    fullWidth
+                  >
+                    Chat on WhatsApp
+                  </Button>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+
+      <div className={styles.footerBottom}>
+        <Container maxWidth="lg">
+          <Grid container justifyContent="space-between" alignItems="center">
+            <Grid item>
+              <p>&copy; {new Date().getFullYear()} DeviceSathi. All Rights Reserved.</p>
+            </Grid>
+            <Grid item>
+              <div className={styles.footerLinks}>
+                <Link href="/privacy-policy" className={styles.footerLink}>
+                  Privacy Policy
+                </Link>
+                <Link href="/terms" className={styles.footerLink}>
+                  Terms & Conditions
+                </Link>
+                <Link href="/sitemap" className={styles.footerLink}>
+                  Sitemap
+                </Link>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+      </div>
+    </footer>
   );
 };
 

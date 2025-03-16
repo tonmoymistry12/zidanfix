@@ -1,58 +1,142 @@
 import React from 'react';
-import { Typography, Box, Grid } from '@mui/material';
+import { Typography, Box, Grid, Container } from '@mui/material';
 import style from './style.module.scss';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { 
+  Engineering,
+  AccessTime,
+  Security,
+  Build,
+  Apartment,
+  Payment,
+  CheckCircle,
+  Speed,
+  Construction,
+  LocalOffer,
+  Settings,
+  Handyman
+} from '@mui/icons-material';
 
 const AMCDetails = () => {
-    const amcCards = [
-        { title: 'About AMC', description: 'An Annual Maintenance Contract ensures regular servicing and maintenance to avoid breakdowns. Minimum 10 AC' },
-        { title: 'Benefits of AMC', description: 'Hassle-free maintenance, extended equipment life, cost savings, and peace of mind.' },
-        { title: 'Coverage Options', description: 'Choose between Comprehensive or Non-comprehensive AMC based on your needs.' },
-        { title: 'Duration', description: 'Flexible plans starting from 1 year to up to 10 years for maximum convenience.' },
-        { title: 'Emergency Support', description: '24/7 emergency repair services for AMC customers.' },
-        { title: 'Flexibility', description: 'Customized AMCs tailored to your unique needs.' },
-        { title: 'Guaranteed Services', description: 'Handled by certified technicians using genuine parts and tools.' },
-        { title: 'How it Works', description: 'Pick a plan, schedule services, and enjoy worry-free maintenance.' },
-        { title: 'Industries Served', description: 'Residential, commercial, hotels, schools, and hospitals.' },
-        { title: 'Just What You Need', description: 'Pay for only the services and equipment you need covered.' },
-        { title: 'Key Features', description: 'Regular maintenance, on-call support, and detailed service reports.' },
-        { title: 'Limitations', description: 'Exclusions include misuse, natural disasters, and external damages.' },
-        { title: 'Minimum Coverage', description: 'Starts with coverage for at least 10 appliances or devices.' },
-        { title: 'No Hidden Costs', description: 'Transparent pricing with no unexpected fees.' },
-        { title: 'Online Booking', description: 'Schedule, renew, or manage your AMC online.' },
-        { title: 'Preventive Maintenance', description: 'Regular checks to avoid costly repairs.' },
-        { title: 'Quick Response Time', description: 'Fast service for AMC customers during breakdowns.' },
-        { title: 'Reliable Technicians', description: 'Skilled professionals for all repairs and maintenance.' },
-        { title: 'Spare Parts', description: 'Use of genuine spare parts for all repairs.' },
-        { title: 'Terms and Conditions', description: 'Clear terms outlining inclusions and exclusions.' },
-        { title: 'Unlimited Support', description: 'Unlimited visits within contract terms.' },
-        { title: 'Value for Money', description: 'Save on repair costs and extend appliance lifespan.' },
-        { title: 'Wide Range of Appliances Covered', description: 'ACs, refrigerators, washing machines, and more.' },
-        { title: 'Exceptional Service Quality', description: 'Top-notch service for all AMC clients.' },
-        { title: 'Your Convenience', description: 'Flexible scheduling and easy renewals.' },
-        { title: 'Zero Downtime', description: 'Minimize downtime with prompt service.' },
-    ];
+  const amcSections = [
+    {
+      title: "Core Features",
+      items: [
+        {
+          icon: <Engineering />,
+          title: "Expert Technicians",
+          description: "Certified professionals with extensive experience in appliance maintenance"
+        },
+        {
+          icon: <AccessTime />,
+          title: "24/7 Support",
+          description: "Round-the-clock emergency repair services for AMC customers"
+        },
+        {
+          icon: <Security />,
+          title: "Guaranteed Service",
+          description: "All repairs backed by our service quality guarantee"
+        }
+      ]
+    },
+    {
+      title: "Coverage Options",
+      items: [
+        {
+          icon: <Build />,
+          title: "Comprehensive Plans",
+          description: "Full coverage including parts, labor, and maintenance"
+        },
+        {
+          icon: <Apartment />,
+          title: "Multiple Segments",
+          description: "Plans for residential, commercial, and industrial clients"
+        },
+        {
+          icon: <Payment />,
+          title: "Flexible Pricing",
+          description: "Choose plans that fit your budget and requirements"
+        }
+      ]
+    },
+    {
+      title: "Service Benefits",
+      items: [
+        {
+          icon: <CheckCircle />,
+          title: "Regular Maintenance",
+          description: "Scheduled checks to prevent unexpected breakdowns"
+        },
+        {
+          icon: <Speed />,
+          title: "Priority Response",
+          description: "Fast-track service for all AMC customers"
+        },
+        {
+          icon: <Construction />,
+          title: "Genuine Parts",
+          description: "Only authentic spare parts used in all repairs"
+        }
+      ]
+    },
+    {
+      title: "Additional Perks",
+      items: [
+        {
+          icon: <LocalOffer />,
+          title: "Special Discounts",
+          description: "Exclusive offers on parts and additional services"
+        },
+        {
+          icon: <Settings />,
+          title: "Preventive Care",
+          description: "Regular optimization to extend equipment life"
+        },
+        {
+          icon: <Handyman />,
+          title: "Multi-Device Support",
+          description: "Coverage for all your essential appliances"
+        }
+      ]
+    }
+  ];
 
-    return (<Box>
-        <Typography variant="h4" className={style.amcTitle}>
-            A to Z of Annual Maintenance Contracts (AMC)
-        </Typography>
+  return (
+    <div className={style.amcWrapper}>
+      <Container maxWidth="lg">
+        <div className={style.amcHeader}>
+          <h2>Comprehensive AMC Solutions</h2>
+          <p>Discover the benefits of our Annual Maintenance Contracts</p>
+        </div>
 
-        <Box className={style.amcContainer}>
+        {amcSections.map((section, index) => (
+          <div key={index} className={style.section}>
+            <h3 className={style.sectionTitle}>{section.title}</h3>
+            <div className={style.sectionGrid}>
+              {section.items.map((item, idx) => (
+                <div key={idx} className={style.featureCard}>
+                  <div className={style.iconWrapper}>
+                    {item.icon}
+                  </div>
+                  <div className={style.featureContent}>
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
 
-            {amcCards.map((card, index) => (
-                <Box key={index} className={style.amcCard}>
-                    <Typography variant="h6" className={style.cardTitle}>
-                        {card.title}
-                    </Typography>
-                    <Typography className={style.cardContent}>
-                        {card.description}
-                    </Typography>
-                </Box>
-            ))}
-        </Box>
-    </Box>
-    );
+        <div className={style.ctaSection}>
+          <h3>Ready to Get Started?</h3>
+          <p>Choose an AMC plan that suits your needs and enjoy worry-free maintenance</p>
+          <button className={style.ctaButton} onClick={() => window.location.href = '#plans'}>
+            View AMC Plans
+          </button>
+        </div>
+      </Container>
+    </div>
+  );
 };
 
 export default AMCDetails;

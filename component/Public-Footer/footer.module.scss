@@ -1,74 +1,290 @@
 @import "styles/variables";
 
-.footerWrap {
-  width: 100%;
-  background-color: #000000; // Black background
+.footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+  color: #ffffff;
+}
 
-  footer {
-    padding: 20px;
-    color: #ffffff; // White text
+.footerTop {
+  padding: 80px 0 40px;
+}
 
-    .footerContent {
-      display: flex; // Use flexbox to align form and info section
-      justify-content: space-between; // Space out the sections
-      align-items: flex-start; // Align items at the start for larger screens
+.companyInfo {
+  .logo {
+    height: 50px;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 5px;
+    border-radius: 3px;
 
-      // Media Query for Mobile
-      @media (max-width: 768px) {
-        flex-direction: column; // Stack sections vertically
-        align-items: center; // Center items
-      }
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    opacity: 0.8;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+
+  .socialIcon {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #3cadbf;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.footerSection {
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40px;
+      height: 2px;
+      background: #3cadbf;
+    }
+  }
+}
+
+.quickLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 12px;
+  }
+}
+
+.quickLink {
+  color: #ffffff;
+  opacity: 0.8;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  .linkIcon {
+    font-size: 16px;
+    margin-right: 8px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    color: #3cadbf;
+    padding-left: 5px;
+
+    .linkIcon {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.contactInfo {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+
+    .contactIcon {
+      color: #3cadbf;
+      margin-right: 15px;
+      margin-top: 3px;
     }
 
-    .formSection {
-      padding-right: 20px; // Add space between form and info section
-      width: 45%;
+    div {
+      p {
+        margin: 0;
+        font-size: 14px;
+        opacity: 0.8;
+      }
 
-      // Media Query for Mobile
-      @media (max-width: 768px) {
-        width: 100%; // Full width on mobile
-        padding-right: 0; // Remove right padding
-        margin-bottom: 20px; // Add space below the form
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #3cadbf;
+        }
+      }
+
+      address {
+        font-style: normal;
+        font-size: 14px;
+        opacity: 0.8;
+        line-height: 1.5;
+      }
+
+      span {
+        font-size: 14px;
+        opacity: 0.8;
       }
     }
+  }
+}
 
-    .infoSection {
-      flex: 0 0 200px; // Fixed width for the info section
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start; // Align items to the start
-      justify-content: center; // Center vertically
-      text-align: left; // Left-align text
-      width: 40%;
+.newsletterForm {
+  margin-bottom: 20px;
 
-      // Media Query for Mobile
-      @media (max-width: 768px) {
-        width: 100%; // Full width on mobile
-        align-items: center; // Center align items
-        text-align: center; // Center text on mobile
+  .newsletterInput {
+    margin-bottom: 15px;
+
+    input {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      &:focus {
+        border-color: #3cadbf;
       }
     }
+  }
+}
 
-    .logo {
-      max-width: 185px;
-      height: 59px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      background-color: #ffffff;
-      padding: 2px;
+.subscribeButton {
+  background: #3cadbf !important;
+  color: #ffffff !important;
+  padding: 10px 25px !important;
+  transition: all 0.3s ease !important;
 
-      // Media Query for Mobile
-      @media (max-width: 768px) {
-        max-width: 150px; // Adjust logo size for mobile
-        margin-bottom: 10px; // Adjust margin
-      }
+  &:hover {
+    background: #2980b9 !important;
+    transform: translateY(-2px);
+  }
+}
+
+.whatsappButton {
+  button {
+    background: #25d366;
+    color: #ffffff;
+    padding: 12px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
     }
+  }
+}
 
-    .subFooter {
-      text-align: center;
-      padding: 15px;
-      color: #ffffff; // White text
-      font-size: 0.875rem; // Slightly smaller text
+.footerBottom {
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+.footerLinks {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      color: #3cadbf;
+    }
+  }
+}
+
+.footerLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+    color: #3cadbf;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerTop {
+    padding: 40px 0 20px;
+  }
+
+  .companyInfo {
+    text-align: center;
+    margin-bottom: 30px;
+
+    .socialLinks {
+      justify-content: center;
+    }
+  }
+
+  .footerSection {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h3::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  .quickLinks li a {
+    justify-content: center;
+  }
+
+  .contactInfo li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .contactIcon {
+      margin-bottom: 10px;
+    }
+  }
+
+  .footerBottom {
+    text-align: center;
+
+    .footerLinks {
+      justify-content: center;
+      margin-top: 15px;
     }
   }
 }

@@ -1,191 +1,186 @@
-import { TwentyTwoMpOutlined } from '@mui/icons-material';
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import Image from 'next/image';
 import React from 'react';
+import { Typography, Box, Container } from '@mui/material';
 import style from "./style.module.scss";
 import CustomSlider from '../../CustomSlider';
+import { 
+	Engineering,
+	Speed,
+	GroupWork,
+	Build,
+	EmojiEvents,
+	Timeline,
+	AcUnit,
+	WaterDrop,
+	Thermostat,
+	ElectricBolt,
+	Kitchen,
+	LocalLaundryService,
+	Microwave,
+	Battery90
+} from '@mui/icons-material';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+
 const SecondPage = () => {
+	const stats = [
+		{
+			icon: <Build />,
+			number: "12K+",
+			title: "Repair Requests",
+			description: "Thousands trust us to keep their appliances running smoothly."
+		},
+		{
+			icon: <EmojiEvents />,
+			number: "9K+",
+			title: "Happy Customers",
+			description: "Our commitment to quality service has earned us a loyal customer base."
+		},
+		{
+			icon: <Engineering />,
+			number: "100+",
+			title: "Expert Technicians",
+			description: "We have a vast network of skilled technicians ready to assist you."
+		},
+		{
+			icon: <Speed />,
+			number: "35K+",
+			title: "Successful Repairs",
+			description: "From minor fixes to major overhauls, we've successfully repaired thousands of appliances."
+		},
+		{
+			icon: <Timeline />,
+			number: "35+",
+			title: "Years Experience",
+			description: "Our team brings decades of expertise to ensure your appliances are in good hands."
+		}
+	];
+
 	const services = [
 		{
+			icon: <AcUnit />,
 			title: "AC Repair & Service",
-			description: "Get your AC up and running efficiently with our expert repair and maintenance services.",
+			description: "Get your AC up and running efficiently with our expert repair and maintenance services."
 		},
 		{
-			title: "Air Cooler Repair & Service",
-			description: "Keep cool during the summer with our reliable air cooler repair services.",
-		},
-		// {
-		// 	title: "Chimney Repair & Service",
-		// 	description: "Ensure your kitchen chimney is in top condition with our professional services.",
-		// },
-		// {
-		// 	title: "Gas Stove Repair & Service",
-		// 	description: "We fix gas stoves of all brands and models, ensuring safe and efficient cooking.",
-		// },
-		{
-			title: "Geyser Repair & Service",
-			description: "Get hot water on demand by fixing any issues with your geyser quickly and efficiently.",
-		},
-		// {
-		// 	title: "Inverter Repair & Service",
-		// 	description: "Keep the power on during outages with our expert inverter repair services.",
-		// },
-		{
-			title: "Water Purifier Repair & Service",
-			description: "Ensure clean and safe drinking water with our thorough water purifier services..",
+			icon: <WaterDrop />,
+			title: "Water Purifier Repair",
+			description: "Ensure clean and safe drinking water with our thorough water purifier services."
 		},
 		{
-			title: "Microwave Repair",
-			description: "Get your microwave back to working condition in no time.",
-		},
-		
-		{
-			title: "Refrigerator Repair",
-			description: "Keep your food fresh with our fast and reliable refrigerator repair services.",
-		},
-		{
-			title: "Washing Machine Repair",
-			description: "Get your laundry done without hassle by fixing any issues with your washing machine.",
-		},
-		{
+			icon: <ElectricBolt />,
 			title: "Electrical Services",
-			description: "For all your electrical needs, trust our expert technicians.",
+			description: "For all your electrical needs, trust our expert technicians."
 		},
+		{
+			icon: <Thermostat />,
+			title: "Geyser Repair",
+			description: "Get hot water on demand by fixing any issues with your geyser quickly and efficiently."
+		},
+		{
+			icon: <Microwave />,
+			title: "Microwave Repair",
+			description: "Get your microwave back to working condition in no time."
+		},
+		{
+			icon: <Kitchen />,
+			title: "Refrigerator Repair",
+			description: "Keep your food fresh with our fast and reliable refrigerator repair services."
+		},
+		{
+			icon: <LocalLaundryService />,
+			title: "Washing Machine Repair",
+			description: "Get your laundry done without hassle by fixing any issues with your washing machine."
+		},
+		{
+			icon: <Battery90 />,
+			title: "Inverter Repair",
+			description: "Professional inverter repair services to keep your power backup system running smoothly."
+		}
 	];
-	return <div className={style.secondWrapper}>
-		<Box className={style.brandsBox}>
-			<Box className={style.brandContentBox}>
-				<Typography className={style.brandHead1} >12 Thousand+ Repair Requests Handled</Typography>
-				<Typography className={style.brandHead2}>Thousands trust us to keep their appliances running smoothly.</Typography>
-			</Box>
-			<Box className={style.brandContentBox}>
-				<Typography className={style.brandHead1}>9 Thousand+ Happy Customers</Typography>
-				<Typography className={style.brandHead2}>Our commitment to quality service has earned us a loyal customer base.</Typography>
-			</Box>
-			<Box className={style.brandContentBox}>
-				<Typography className={style.brandHead1}>1 Hundred+ Technicians On Call</Typography>
-				<Typography className={style.brandHead2}>We have a vast network of skilled technicians ready to assist you at any time.</Typography>
-			</Box>
-			<Box className={style.brandContentBox}>
-				<Typography className={style.brandHead1}>35 Thousand+ Successful Repairs</Typography>
-				<Typography className={style.brandHead2}>From minor fixes to major overhauls, we've successfully repaired thousands of appliances.</Typography>
-			</Box>
-			<Box className={style.brandContentBox}>
-				<Typography className={style.brandHead1}>35+ Years of Combined Experience</Typography>
-				<Typography className={style.brandHead2}>Our team brings decades of expertise to ensure your appliances are in good hands.</Typography>
-			</Box>
-		</Box>
-		<Box>
-			<Typography className={style.brandHead5}>Why Us?</Typography>
-			<Box className={style.whyUsBox}>
 
-				{services.map((service, index) => (
-					<Box key={index} className={style.whyUsItem}>
-						<Box className={style.backgroundImage}>
-							<img src={`/images/promotion/img${index + 1}.jpeg`} alt={`Image ${index + 1}`} className={style.image} />
-						</Box>
-						<Box className={style.content}>
-							<Typography variant="h6" className={style.serviceTitle}>{service.title}</Typography>
-							<Typography variant="body2" className={style.description}>{service.description}</Typography>
-						</Box>
-					</Box>
-				))}
-			</Box>
-		</Box>
+	const partners = [
+		"/images/brands/ntpc-logo.png",
+		"/images/brands/nh.svg",
+		"/images/brands/desun.png",
+		"/images/brands/pic.png",
+		"/images/brands/zeyphr.png",
+		"/images/brands/omega.svg",
+		"/images/brands/medanta.png"
+	];
 
-		<Box className={style.ourPartnerWrapper}>
-			<Typography className={style.brandHead6}>Trusted by leading brands</Typography>
-			<Box className={style.partnerIconBox}>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/ntpc-logo.png"
-						alt="Picture of the logo"
+	return (
+		<div className={style.secondWrapper}>
+			<Container maxWidth="lg">
+				{/* Stats Section */}
+				<div className={style.statsSection}>
+					{stats.map((stat, index) => (
+						<motion.div 
+							key={index}
+							className={style.statCard}
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.5, delay: index * 0.1 }}
+						>
+							<div className={style.statIcon}>{stat.icon}</div>
+							<h3 className={style.statNumber}>{stat.number}</h3>
+							<h4 className={style.statTitle}>{stat.title}</h4>
+							<p className={style.statDescription}>{stat.description}</p>
+						</motion.div>
+					))}
+				</div>
 
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/nh.svg"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/desun.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/pic.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/zeyphr.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/omega.svg"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/zeyphr.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
+				{/* Services Section */}
+				<div className={style.servicesSection}>
+					<h2 className={style.sectionTitle}>Why Choose Us?</h2>
+					<div className={style.servicesGrid}>
+						{services.map((service, index) => (
+							<motion.div
+								key={index}
+								className={style.serviceCard}
+								initial={{ opacity: 0, scale: 0.9 }}
+								whileInView={{ opacity: 1, scale: 1 }}
+								transition={{ duration: 0.5, delay: index * 0.1 }}
+							>
+								<div className={style.serviceIcon}>{service.icon}</div>
+								<h3>{service.title}</h3>
+								<p>{service.description}</p>
+							</motion.div>
+						))}
+					</div>
+				</div>
 
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/medanta.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-				<Box className={style.partnerIcon}>
-					<Image
-						src="/images/brands/medanta.png"
-						alt="Picture of the logo"
-						className={style.image}
-						layout="fill"
-						objectFit="contain"
-					/>
-				</Box>
-			</Box>
-		</Box>
-		<Box>
-			<Typography className={style.brandHead3}>Client Feedback</Typography>
-			<CustomSlider />
-		</Box>
-	</div>;
+				{/* Partners Section */}
+				<div className={style.partnersSection}>
+					<h2 className={style.sectionTitle}>Trusted by Leading Brands</h2>
+					<div className={style.partnersGrid}>
+						{partners.map((partner, index) => (
+							<motion.div
+								key={index}
+								className={style.partnerLogo}
+								initial={{ opacity: 0 }}
+								whileInView={{ opacity: 1 }}
+								transition={{ duration: 0.5, delay: index * 0.1 }}
+							>
+								<Image
+									src={partner}
+									alt="Partner logo"
+									layout="fill"
+									objectFit="contain"
+								/>
+							</motion.div>
+						))}
+					</div>
+				</div>
+
+				{/* Testimonials Section */}
+				<div className={style.testimonialsSection}>
+					<h2 className={style.sectionTitle}>What Our Clients Say</h2>
+					<CustomSlider />
+				</div>
+			</Container>
+		</div>
+	);
 };
+
 SecondPage.title = 'Second Page';
 export default SecondPage;

@@ -2,9 +2,32 @@ import React, { useState } from 'react';
 import { Button, Grid, Typography, Box, Modal, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { 
+  AcUnit, 
+  WaterDrop, 
+  ElectricBolt, 
+  Kitchen, 
+  LocalLaundryService, 
+  Battery90, 
+  Thermostat,
+  Microwave,
+  Kitchen as Refrigerator,
+  Engineering, 
+  Speed, 
+  Security, 
+  Support,
+  CheckCircle,
+  Timer,
+  Build,
+  LocalOffer
+} from '@mui/icons-material';
 import style from './style.module.scss';
 import { useMediaQuery, useTheme } from '@mui/material';
 import AMCDetails from '../Amc';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { motion } from 'framer-motion';
 
 const FirstPage = () => {
   const theme = useTheme();
@@ -81,6 +104,13 @@ const FirstPage = () => {
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
   const handleOpenModal = (image) => {
     setSelectedImage(image);
     setOpen(true);
@@ -102,214 +132,405 @@ const FirstPage = () => {
     window.open(`tel:${phoneNumber}`);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const phoneNumber = '919233141733';
+    const message = `New Service Enquiry:
+Name: ${formData.name}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}`;
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const heroSlides = [
+    {
+      image: '/images/background/hero1.jpg',
+      title: 'Expert Appliance Repairs',
+      subtitle: 'Professional service at your doorstep'
+    },
+    {
+      image: '/images/background/hero2.jpg',
+      title: 'Same Day Service',
+      subtitle: 'Quick response time guaranteed'
+    },
+    {
+      image: '/images/background/hero3.jpg',
+      title: 'Certified Technicians',
+      subtitle: 'Trusted by thousands of customers'
+    }
+  ];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    rtl: true, // Right to left animation
+    cssEase: "linear",
+    arrows: false,
+  };
+
+  const serviceIcons = {
+    'AC Repair & Service': AcUnit,
+    'Water Purifier Repair & Service': WaterDrop,
+    'Electrical Services': ElectricBolt,
+    'Geyser Repair & Service': Thermostat,
+    'Microwave Repair': Microwave,
+    'Refrigerator Repair': Refrigerator,
+    'Washing Machine Repair': LocalLaundryService,
+    'Inverter Repair & Service': Battery90,
+  };
+
   return (
     <div className={style.wrapper}>
-      <Grid container sx={{ width: '100%', height: '100%' }}>
-        {isMobile && (
-          <Grid item xs={12} md={12}>
-            <Box sx={{ textAlign: 'center', marginTop: '80px' }}>
-              <img
-                src="./images/background/back1.jpeg"
-                alt="Mobile Header Image"
-                style={{ maxWidth: '100%', height: 'auto' }}
+      <div className={style.heroSection}>
+        <div className={style.enquiryFormContainer}>
+          <form onSubmit={handleFormSubmit} className={style.enquiryForm}>
+            <h2>Quick Enquiry</h2>
+            <p>Get instant response on WhatsApp</p>
+            
+            <div className={style.formGrid}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                required
               />
-            </Box>
-          </Grid>
-        )}
+              
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+              />
+              
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="">Select Service</option>
+                {images.map((img, idx) => (
+                  <option key={idx} value={img.imageName}>
+                    {img.imageName}
+                  </option>
+                ))}
+              </select>
+              
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formData.message}
+                onChange={handleInputChange}
+                rows="4"
+              />
+            </div>
+            
+            <button type="submit" className={style.submitButton}>
+              Send Enquiry on WhatsApp
+            </button>
+          </form>
+        </div>
 
-        <Grid item xs={12} md={5} className={style.leftPart}>
-          <Typography className={style.mainHeader}>
-            We Fix, You Relax <br /> Quality Repairs at Your Convenience.
-          </Typography>
-          <Typography className={style.subHeader}>
-            "Book Now" or "Get a Free Quote"
-          </Typography>
-          <Box className={style.buttonBox}>
-            <Button variant="contained" className="default-btn primary-btn" onClick={handleBookNowClick}>
+        <div className={style.heroBanner}>
+          <Slider {...sliderSettings} className={style.heroSlider}>
+            {heroSlides.map((slide, index) => (
+              <div key={index} className={style.heroSlide}>
+                <div 
+                  className={style.slideBackground}
+                  style={{ backgroundImage: `url(${slide.image})` }}
+                >
+                  <div className={style.heroContent}>
+                   
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
+
+      <div className={style.servicesWrapper}>
+        <h1 className={style.mainHeader}>
+          We Fix, You Relax
+          <br />
+          Quality Repairs at Your Convenience
+        </h1>
+        <p className={style.subHeader}>
+          Expert appliance repair services delivered right to your doorstep
+        </p>
+
+        <div className={style.featuresGrid}>
+          <div className={style.featureCard}>
+            <div className={style.icon}>
+              <CheckCircleIcon />
+            </div>
+            <h3>Budget-Friendly Solutions</h3>
+            <p>Affordable services without compromising quality, offering the best value for your money.</p>
+          </div>
+          <div className={style.featureCard}>
+            <div className={style.icon}>
+              <CheckCircleIcon />
+            </div>
+            <h3>Trusted & Reliable</h3>
+            <p>Dependable and consistent service trusted by many satisfied customers.</p>
+          </div>
+          <div className={style.featureCard}>
+            <div className={style.icon}>
+              <CheckCircleIcon />
+            </div>
+            <h3>Fast & Efficient Service</h3>
+            <p>Quick, expert repairs to get your appliances working in no time.</p>
+          </div>
+        </div>
+
+        <div className={style.servicesSection}>
+          <h2 className={style.sectionTitle}>Our Services</h2>
+          <div className={style.servicesGrid}>
+            {images.map((service, index) => {
+              const IconComponent = serviceIcons[service.imageName];
+              return (
+                <div 
+                  key={index} 
+                  className={style.serviceCard}
+                  onClick={() => handleOpenModal(service)}
+                >
+                  <IconComponent className={style.serviceIcon} />
+                  <div className={style.serviceContent}>
+                    <h3 className={style.serviceName}>{service.imageName}</h3>
+                    <p className={style.serviceDescription}>
+                      {service.description.split('.')[0]}.
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={style.actionButtons}>
+            <button 
+              className={`${style.button} ${style.primary}`}
+              onClick={handleBookNowClick}
+            >
               Book Now
-            </Button>
-            <Button
-              variant="outlined"
-              className="default-btn primary-btn-outline"
+            </button>
+            <button 
+              className={`${style.button} ${style.secondary}`}
               onClick={handleTalkToUsClick}
             >
               Talk to Us
-            </Button>
-          </Box>
-           {/* Add this section below the existing text */}
-           <Box sx={{ marginTop: '20px' }} className={style.bulletBox}>
-           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px', justifyContent: 'center' }} className={style.bulletPoint}>
-             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
-             <div >
-               <div className={style.bulletPointHeading}> Budget-Friendly Solutions</div>
-               <div className={style.bulletPointDesc}>Affordable services without compromising quality, offering the best value for your money.</div>
-             </div>
-           </div>
-           <div className={style.bulletPoint}>
-             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
-             <div>
-               <div className={style.bulletPointHeading}>Trusted & Reliable</div>
-               <div className={style.bulletPointDesc} >Dependable and consistent service trusted by many satisfied customers.</div>
-             </div>
-
-           </div>
-           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px' }} className={style.bulletPoint}>
-             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
-             <div>
-               <div className={style.bulletPointHeading}>Convenient Scheduling</div>
-               <div className={style.bulletPointDesc} >Flexible appointments that fit your schedule for hassle-free service.</div>
-             </div>
-           </div>
-           <div sx={{ display: 'flex', alignItems: 'flex-start', marginBottom: '10px' }} className={style.bulletPoint}>
-             <CheckCircleIcon style={{ color: 'green', marginRight: '8px', }} />
-             <div className={style.bulletPointHeading}>
-               <div>Fast & Efficient Service</div>
-               <div className={style.bulletPointDesc} >Quick, expert repairs to get your appliances working in no time.</div>
-             </div>
-           </div>
-           <div sx={{ display: 'flex', alignItems: 'flex-start' }} className={style.bulletPoint}>
-             <CheckCircleIcon style={{ color: 'green', marginRight: '8px' }} />
-             <div>
-               <div className={style.bulletPointHeading}>Certified Technicians</div>
-               <div className={style.bulletPointDesc} >Skilled, certified professionals ensuring high-quality work every time.</div>
-             </div>
-           </div>
-         </Box>
-        </Grid>
-
-        <Grid item xs={12} md={7} className={style.rightPart}>
-          <div className={style.contentWrapper}>
-            <Box
-              sx={{
-                width: isMobile ? '100%' : '660px',
-                padding: isMobile ? '10px' : '0 20px',
-                height: isMobile ? 'auto' : '450px',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                gap: isMobile ? '5px' : '20px',
-              }}
-            >
-              <Typography className={style.deviceNameQuestion}>
-                Which device do you need service for?
-              </Typography>
-              <div className={style.mainDiv}>
-                {images.map((image, index) => (
-                  <div className={style.childDiv} key={index}>
-                    <div
-                      className={style.childDivforimg}
-                      onClick={() => handleOpenModal(image)}
-                      style={{ cursor: 'pointer' }}
-                    >
-                      <img
-                        src={image.imageUrl}
-                        alt={image.imageName}
-                        style={{ width: '50px', height: 'auto' }}
-                      />
-                    </div>
-                    <Typography variant="body2" className={style.deviceName}>
-                      {image.imageName}
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-            </Box>
+            </button>
           </div>
-        </Grid>
-      </Grid>
-      <Box className={style.nextBlock} >
-        <img src={'/images/jobs/amc.jpg'} alt="amc" />
-      </Box>
+        </div>
+      </div>
+
+      <section className={style.amcSection}>
+        <div className={style.amcContainer}>
+          <div className={style.amcHeader}>
+            <h2>Annual Maintenance Plans</h2>
+            <p>Comprehensive maintenance plans to keep your appliances running smoothly all year round</p>
+          </div>
+
+          <div className={style.amcFeatures}>
+            <div className={style.amcFeature}>
+              <div className={style.featureIcon}>
+                <Engineering />
+              </div>
+              <div className={style.featureContent}>
+                <h3>Expert Technicians</h3>
+                <p>Certified professionals with years of experience in appliance maintenance and repair</p>
+              </div>
+            </div>
+
+            <div className={style.amcFeature}>
+              <div className={style.featureIcon}>
+                <Speed />
+              </div>
+              <div className={style.featureContent}>
+                <h3>Priority Service</h3>
+                <p>Get priority scheduling and same-day emergency service</p>
+              </div>
+            </div>
+
+            <div className={style.amcFeature}>
+              <div className={style.featureIcon}>
+                <Security />
+              </div>
+              <div className={style.featureContent}>
+                <h3>90-Day Warranty</h3>
+                <p>All repairs and parts come with a 90-day service warranty</p>
+              </div>
+            </div>
+
+            <div className={style.amcFeature}>
+              <div className={style.featureIcon}>
+                <Support />
+              </div>
+              <div className={style.featureContent}>
+                <h3>24/7 Support</h3>
+                <p>Round-the-clock customer support for all your queries</p>
+              </div>
+            </div>
+          </div>
+
+          <div className={style.amcPlans}>
+            <div className={style.planCard}>
+              <h3 className={style.planName}>Basic Plan</h3>
+              <div className={style.planPrice}>
+                ₹2,999<span>/year</span>
+              </div>
+              <ul className={style.planFeatures}>
+                <li><CheckCircle /> 2 Service Visits</li>
+                <li><CheckCircle /> Basic Inspection</li>
+                <li><CheckCircle /> Parts Discount 10%</li>
+                <li><Timer /> 48hr Response Time</li>
+              </ul>
+              <button className={style.planButton} onClick={handleBookNowClick}>
+                Get Started
+              </button>
+            </div>
+
+            <div className={`${style.planCard} ${style.popular}`}>
+              <h3 className={style.planName}>Premium Plan</h3>
+              <div className={style.planPrice}>
+                ₹4,999<span>/year</span>
+              </div>
+              <ul className={style.planFeatures}>
+                <li><CheckCircle /> 4 Service Visits</li>
+                <li><CheckCircle /> Deep Inspection</li>
+                <li><CheckCircle /> Parts Discount 20%</li>
+                <li><Timer /> 24hr Response Time</li>
+                <li><Build /> Emergency Support</li>
+              </ul>
+              <button className={style.planButton} onClick={handleBookNowClick}>
+                Get Started
+              </button>
+            </div>
+
+            <div className={style.planCard}>
+              <h3 className={style.planName}>Business Plan</h3>
+              <div className={style.planPrice}>
+                ₹7,999<span>/year</span>
+              </div>
+              <ul className={style.planFeatures}>
+                <li><CheckCircle /> 6 Service Visits</li>
+                <li><CheckCircle /> Premium Support</li>
+                <li><CheckCircle /> Parts Discount 30%</li>
+                <li><Timer /> 12hr Response Time</li>
+                <li><Build /> Priority Emergency Support</li>
+                <li><LocalOffer /> Custom Solutions</li>
+              </ul>
+              <button className={style.planButton} onClick={handleBookNowClick}>
+                Get Started
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
       <Box className={style.nextBlock2} >
         <AMCDetails />
       </Box>
-      <Box className={style.bottomWave}>
-        <img src={'/images/objects/wave.svg'} alt="Wave" />
-      </Box>
+      
       <Modal open={open} onClose={handleCloseModal}>
-  <Box
-    sx={{
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: 400,
-      bgcolor: 'background.paper',
-      borderRadius: 2,
-      boxShadow: 24,
-      p: 4,
-    }}
-  >
-    {selectedImage && (
-      <>
-        <Typography variant="h6" component="h2" gutterBottom>
-          {selectedImage.imageName}
-        </Typography>
-        <Typography variant="body1" sx={{ mb: 2 }}>
-          {selectedImage.description}
-        </Typography>
-
-        <Typography variant="subtitle1" sx={{ mt: 2 }}>
-          Services Offered:
-        </Typography>
-        <ul>
-          {selectedImage.services.map((service, idx) => (
-            <li key={idx}>{service}</li>
-          ))}
-        </ul>
-
-        <Typography variant="subtitle1" sx={{ mt: 2 }}>
-          Pricing:
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 2 }}>
-          {selectedImage.pricing}
-        </Typography>
-
-        <Accordion>
-          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography>Additional Information</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Contact us for more details on {selectedImage.imageName}.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-
         <Box
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: 3,
-            gap: 2,
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 400,
+            bgcolor: 'background.paper',
+            borderRadius: 2,
+            boxShadow: 24,
+            p: 4,
           }}
         >
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => {
-              const phoneNumber = '919233141733';
-              const whatsappMessage = `Hello, I would like to book a service for ${selectedImage.imageName}. Please provide more details.`;
-              const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-                whatsappMessage
-              )}`;
-              window.open(whatsappUrl, '_blank');
-            }}
-          >
-            Book Now
-          </Button>
-          <Button variant="outlined" onClick={handleCloseModal}>
-            Close
-          </Button>
-        </Box>
-      </>
-    )}
-  </Box>
- 
-</Modal>
+          {selectedImage && (
+            <>
+              <Typography variant="h6" component="h2" gutterBottom>
+                {selectedImage.imageName}
+              </Typography>
+              <Typography variant="body1" sx={{ mb: 2 }}>
+                {selectedImage.description}
+              </Typography>
 
+              <Typography variant="subtitle1" sx={{ mt: 2 }}>
+                Services Offered:
+              </Typography>
+              <ul>
+                {selectedImage.services.map((service, idx) => (
+                  <li key={idx}>{service}</li>
+                ))}
+              </ul>
+
+              <Typography variant="subtitle1" sx={{ mt: 2 }}>
+                Pricing:
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 2 }}>
+                {selectedImage.pricing}
+              </Typography>
+
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography>Additional Information</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography>
+                    Contact us for more details on {selectedImage.imageName}.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginTop: 3,
+                  gap: 2,
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    const phoneNumber = '919233141733';
+                    const whatsappMessage = `Hello, I would like to book a service for ${selectedImage.imageName}. Please provide more details.`;
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+                      whatsappMessage
+                    )}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
+                >
+                  Book Now
+                </Button>
+                <Button variant="outlined" onClick={handleCloseModal}>
+                  Close
+                </Button>
+              </Box>
+            </>
+          )}
+        </Box>
+      </Modal>
     </div>
   );
 };
