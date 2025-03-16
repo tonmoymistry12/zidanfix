@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import PublicFooter from "../Public-Footer";
 import PublicHeader from "../Public-Header";
+import Script from 'next/script';
 
 export default function BaseLayout({ children }) {
   return (
@@ -100,16 +101,6 @@ export default function BaseLayout({ children }) {
           `}
         </script>
        
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZT9530476">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments)}
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZZT9530476');
-</script>
-
         {/* Open Graph Tags */}
         <meta property="og:title" content="Best AC Repair & Maintenance Services in Kolkata | DeviceSathi" />
         <meta property="og:description" content="Expert AC repair services in Kolkata & Howrah. 24/7 emergency service, experienced technicians, doorstep repairs. Best rates guaranteed. Call now for instant AC service!" />
@@ -136,6 +127,21 @@ export default function BaseLayout({ children }) {
         {/* Canonical URL */}
         <link rel="canonical" href="https://www.devicesathi.com" />
       </Head>
+
+      {/* Google Analytics Scripts */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-ZZT9530476"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-ZZT9530476');
+        `}
+      </Script>
 
       <PublicHeader />
       {children}
