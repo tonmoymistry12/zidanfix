@@ -99,6 +99,16 @@ export default function BaseLayout({ children }) {
             }
           `}
         </script>
+       
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZT9530476">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZZT9530476');
+</script>
 
         {/* Open Graph Tags */}
         <meta property="og:title" content="Best AC Repair & Maintenance Services in Kolkata | DeviceSathi" />
