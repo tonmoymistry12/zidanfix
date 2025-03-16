@@ -12,11 +12,13 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
 import { StyledEngineProvider } from '@mui/material/styles';
+import { useRouter } from 'next/router';
 
 const pages = ["Products", "Our Services", "About Us", "Contact", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const PublicHeader = () => {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -34,14 +36,17 @@ const PublicHeader = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleLogoClick = () => {
+    router.push('/');
+  };
+
   return (
     <StyledEngineProvider injectFirst>
       <AppBar position="static" className={styles.header}>
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <div
-
-            >
+            <div onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
               <div className={styles.logo}>
                 <Image
                   src="/images/logo/zidan-logo.svg"
@@ -50,28 +55,23 @@ const PublicHeader = () => {
                   layout="fill"
                   objectFit="contain"
                 />
-               
               </div>
-
-            </div >
+            </div>
             <div className={styles.telephoneBox}>
-            <div className={styles.telephoneImageBox} style={{ position: 'relative' }}>
-                    <Image
-                      src="/images/header/telephone.svg"
-                      alt="Picture of the logo"
-                      className={styles.telephoneimage}
-                      layout="fill"
-                      objectFit="contain"
-                    />
-                  </div>
-                 <div className={styles.contactUs}>Contact Us: </div>
-                  
-                  <div className={styles.telephoneNumber}>
-                    +91-9233141733
-                  </div>
-                  
-
-                </div>
+              <div className={styles.telephoneImageBox} style={{ position: 'relative' }}>
+                <Image
+                  src="/images/header/telephone.svg"
+                  alt="Picture of the logo"
+                  className={styles.telephoneimage}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+              <div className={styles.contactUs}>Contact Us: </div>
+              <div className={styles.telephoneNumber}>
+                +91-9233141733
+              </div>
+            </div>
             {/* <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
